@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影流金融科技顾问</title>
+    <style>
+        :root {
+            --x-color: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            color: var(--x-color);
+        }
+
+        .ocean-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .x-ocean {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: brightness(1.2);
+        }
+
+        .x-ocean-mirror {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            height: 100%;
+            transform: scaleY(-1);
+            mask-image: linear-gradient(to bottom, 
+                rgba(0,0,0,0.8) 10%, 
+                rgba(0,0,0,0.3) 50%,
+                transparent 90%);
+        }
+
+        .x-particle {
+            position: absolute;
+            color: var(--x-color);
+            text-shadow: 0 0 15px rgba(255,255,255,0.5);
+            animation: waveFlow 14s cubic-bezier(0.4,0,0.2,1) infinite;
+            font-family: 'Courier New', monospace;
+        }
+
+        @keyframes waveFlow {
+            0% {
+                transform: translate(calc(-10vw * var(--wave-offset)), 120vh) 
+                    rotate(calc(-15deg * var(--wave-rotate)))
+                    scale(0.8);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.9;
+                transform: rotate(0deg) scale(1.3);
+            }
+            50% {
+                transform: translateX(calc(30px * var(--wave-offset))) 
+                    rotate(calc(10deg * var(--wave-rotate)));
+            }
+            100% {
+                transform: translate(calc(10vw * var(--wave-offset)), -50vh) 
+                    rotate(calc(25deg * var(--wave-rotate)))
+                    scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        .mirror-window {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 5vh auto;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(255,255,255,0.1);
+        }
+
+        .mirror-reflection {
+            position: absolute;
+            bottom: -150%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleY(-1);
+            opacity: 0.3;
+            mask-image: linear-gradient(to bottom, 
+                transparent 10%, 
+                rgba(0,0,0,0.6) 30%,
+                transparent 90%);
+        }
+
+        .strategy-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 0 20px #fff;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        a {
+            color: #00ff9d;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean-container">
+        <div class="x-ocean" id="xOcean"></div>
+        <div class="x-ocean-mirror" id="xOceanMirror"></div>
+    </div>
+
+    <div class="mirror-window">
+        <h1>影流金融科技顾问</h1>
+        <div class="strategy-section">
+            <h2>我们的服务</h2>
+            <p>我们专注于为金融科技企业提供高端咨询服务，助力客户在快速变化的数字金融时代中抢占先机。</p>
+            <ul>
+                <li>支付系统设计与合规咨询</li>
+                <li>区块链与数字资产解决方案</li>
+                <li>量化交易系统构建与优化</li>
+                <li>金融数据分析与风险建模</li>
+            </ul>
+        </div>
+        <div class="mirror-reflection"></div>
+    </div>
+
+    <div class="mirror-window">
+        <h1>核心优势</h1>
+        <div class="strategy-section">
+            <h2>我们的特色</h2>
+            <p>1. 拥有跨领域团队，融合金融、科技、法律、市场经验。</p>
+            <p>2. 多年服务经验，覆盖初创企业到上市公司。</p>
+            <p>3. 提供定制化SaaS解决方案，快速部署，灵活扩展。</p>
+            <p>4. 实时追踪行业监管动态，提供合规保障。</p>
+        </div>
+        <div class="mirror-reflection"></div>
+    </div>
+
+    <div class="mirror-window">
+        <h1>合作案例</h1>
+        <div class="strategy-section">
+            <h2>典型客户</h2>
+            <p>✔ 协助某区块链初创企业通过香港虚拟资产牌照申请。</p>
+            <p>✔ 为欧洲支付平台设计全套风险控制与风控模型。</p>
+            <p>✔ 支持亚洲交易所平台构建高并发撮合引擎。</p>
+        </div>
+        <div class="mirror-reflection"></div>
+    </div>
+
+    <div class="mirror-window">
+        <h1>联系我们</h1>
+        <div class="strategy-section">
+            <h2>欢迎垂询</h2>
+            <p>邮箱：contact@yingliufintech.com</p>
+            <p>地址：中国·上海市·浦东新区金融科技中心</p>
+            <p>欢迎通过邮件或微信与我们预约顾问会议。</p>
+            <p>© 2025 影流金融科技顾问 版权所有</p>
+        </div>
+        <div class="mirror-reflection"></div>
+    </div>
+
+    <script>
+        function createWaveParticle(container) {
+            const x = document.createElement('div');
+            x.className = 'x-particle';
+            const characters = ['₿', '¥', '$', '€', 'Ξ'];
+            const waveOffset = Math.random() * 2 - 1;
+            const waveRotate = Math.random() > 0.5 ? 1 : -1;
+            x.textContent = characters[Math.floor(Math.random() * characters.length)];
+            x.style.setProperty('--wave-offset', waveOffset);
+            x.style.setProperty('--wave-rotate', waveRotate);
+            x.style.left = Math.random() * 120 - 10 + '%';
+            x.style.animationDuration = (Math.random() * 8 + 6) + 's';
+            x.style.fontSize = (Math.random() * 25 + 20) + 'px';
+            x.style.opacity = Math.random() * 0.7 + 0.3;
+            x.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(x);
+            setTimeout(() => x.remove(), parseFloat(x.style.animationDuration) * 1000);
+        }
+
+        function generateWaves() {
+            [xOcean, xOceanMirror].forEach(container => {
+                if(container.children.length < 300) {
+                    createWaveParticle(container);
+                }
+            });
+        }
+
+        const xOcean = document.getElementById('xOcean');
+        const xOceanMirror = document.getElementById('xOceanMirror');
+
+        setInterval(generateWaves, 30);
+
+        window.addEventListener('resize', () => {
+            [xOcean, xOceanMirror].forEach(c => {
+                while(c.firstChild) c.removeChild(c.firstChild);
+            });
+        });
+    </script>
+</body>
+</html>
